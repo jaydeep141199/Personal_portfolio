@@ -2,7 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
 import { Github, Linkedin, Mail } from 'lucide-react';
-import jaydeep from "../assets/Jd.jpeg"
+import jaydeep from '../assets/Jd.jpeg';
+import { personalInfo } from '../data/portfolioData';
 
 const Hero: React.FC = () => {
   return (
@@ -17,14 +18,16 @@ const Hero: React.FC = () => {
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
               <span className="text-white">Hi, I'm </span>
-              <span className="text-blue-400">Jaydeep Gadhavi</span>
+              <span className="text-blue-400">{personalInfo.name}</span>
             </h1>
             <div className="text-xl md:text-2xl lg:text-3xl font-medium text-gray-300 mb-6 h-16">
               <TypeAnimation
                 sequence={[
-                  'Front End Developer',
+                  personalInfo.heroRoles[0],
                   2000,
-                  'React.js Developer',
+                  personalInfo.heroRoles[1],
+                  2000,
+                  personalInfo.heroRoles[2],
                   2000,
                 ]}
                 wrapper="span"
@@ -33,8 +36,7 @@ const Hero: React.FC = () => {
               />
             </div>
             <p className="text-gray-400 mb-8 max-w-lg mx-auto md:mx-0">
-              Passionate front-end developer with expertise in React.js, Redux, and modern UI frameworks.
-              Creating responsive and user-friendly web applications.
+              {personalInfo.summary}
             </p>
             <div className="flex flex-wrap gap-4 justify-center md:justify-start">
               <motion.a
@@ -56,7 +58,7 @@ const Hero: React.FC = () => {
             </div>
             <div className="flex mt-8 gap-6 justify-center md:justify-start">
               <motion.a
-                href="https://github.com/jaydeep141199"
+                href={personalInfo.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ y: -5 }}
@@ -66,7 +68,7 @@ const Hero: React.FC = () => {
               </motion.a>
             
               <motion.a
-                href="http://www.linkedin.com/in/jaydeep-gadhavi-ab25b0219"
+                href={personalInfo.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ y: -5 }}
@@ -75,7 +77,7 @@ const Hero: React.FC = () => {
                 <Linkedin size={24} />
               </motion.a>
               <motion.a
-                href="mailto:jaydip.gadhavi.1999@gmail.com"
+                href={`mailto:${personalInfo.email}`}
                 whileHover={{ y: -5 }}
                 className="text-gray-400 hover:text-white transition-colors"
               >
@@ -92,7 +94,7 @@ const Hero: React.FC = () => {
             <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-blue-400 shadow-xl shadow-blue-500/20">
               <img
                 src={jaydeep}
-                alt="Jaydeep Gadhavi"
+                alt={personalInfo.name}
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-blue-500/10"></div>

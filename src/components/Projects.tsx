@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-// import {  Github } from 'lucide-react';
+import { featuredProjects, personalInfo } from '../data/portfolioData';
 
 const Projects: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState('all');
@@ -12,60 +12,9 @@ const Projects: React.FC = () => {
     // { id: 'ui', name: 'UI/UX' }
   ];
 
-  const projects = [
-    {
-      id: 1,
-      title: 'Dairy Management System',
-      description: 'Admin panel for dairy management with secure authentication and CRUD operations for products, users, orders, and subscriptions.',
-      image: 'https://cdn.pixabay.com/photo/2017/07/05/15/41/milk-2474993_960_720.jpg',
-      categories: ['react'],
-      technologies: ['React', 'RTK Query', 'Mantine UI', 'Formik', 'Zod']
-    },
-    {
-      id: 2,
-      title: 'Learning Management System',
-      description: 'Quiz management system with admin and client panels. Features include user authentication, quiz creation, and automatic answer checking.',
-      image: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80',
-      categories: ['next', 'react'],
-      technologies: ['Next.js', 'Mantine UI', 'Redux Toolkit', 'Formik', 'Yup']
-    },
-    {
-      id: 3,
-      title: 'SSO Authentication System',
-      description: 'Login system with forgot and reset password functionality using Next Auth and JWT tokens in cookies.',
-      image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
-      categories: ['next'],
-      technologies: ['Next.js', 'Mantine UI', 'Zod', 'React Hook Form']
-    },
-    {
-      id: 4,
-      title: 'Expense Management System',
-      description: 'Personal finance tracker with expense categorization, budget planning, and visual reports.',
-      image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1026&q=80',
-      categories: ['react'],
-      technologies: ['React', 'Redux Toolkit', 'Tailwind CSS', 'Chart.js']
-    },
-    {
-      id: 5,
-      title: 'Music App',
-      description: 'Music player with playlist management, search functionality, and audio visualization.',
-      image: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
-      categories: ['react'],
-      technologies: ['React', 'Redux', 'Styled Components', 'Web Audio API']
-    },
-    {
-      id: 6,
-      title: 'Weather App',
-      description: 'Real-time weather information with forecast, location search, and interactive maps.',
-      image: 'https://images.unsplash.com/photo-1592210454359-9043f067919b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
-      categories: ['react'],
-      technologies: ['React', 'OpenWeather API', 'Leaflet', 'Tailwind CSS']
-    }
-  ];
-
   const filteredProjects = activeCategory === 'all' 
-    ? projects 
-    : projects.filter(project => project.categories.includes(activeCategory));
+    ? featuredProjects 
+    : featuredProjects.filter(project => project.categories.includes(activeCategory));
 
   return (
     <section id="projects" className="py-20">
@@ -167,10 +116,10 @@ const Projects: React.FC = () => {
           className="mt-16 text-center"
         >
           <p className="text-gray-300 mb-6">
-            These are just a few examples of my work. I'm constantly working on new projects and improving my skills.
+            These portfolio projects are aligned with the work and product experience highlighted in my resume.
           </p>
           <motion.a
-            href="https://github.com/jaydeep141199"
+            href={personalInfo.github}
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}

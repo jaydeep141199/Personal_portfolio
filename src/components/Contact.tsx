@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, Linkedin, Github } from 'lucide-react';
+import { personalInfo } from '../data/portfolioData';
 
 const Contact: React.FC = () => {
   return (
@@ -27,8 +28,7 @@ const Contact: React.FC = () => {
           >
             <h3 className="text-2xl font-bold mb-6 text-blue-400">Contact Information</h3>
             <p className="text-gray-300 mb-8">
-              Feel free to reach out to me for any questions, project inquiries, or just to say hello. 
-              I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+              I&apos;m open to frontend roles, freelance work, and product collaborations where I can contribute with React.js, Next.js, and modern UI engineering.
             </p>
 
             <div className="space-y-6">
@@ -38,7 +38,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="text-lg font-medium text-white mb-1">Phone</h4>
-                  <p className="text-gray-400">8200771461</p>
+                  <p className="text-gray-400">{personalInfo.phone}</p>
                 </div>
               </div>
 
@@ -48,7 +48,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="text-lg font-medium text-white mb-1">Email</h4>
-                  <p className="text-gray-400">jaydip.gadhavi.1999@gmail.com</p>
+                  <p className="text-gray-400">{personalInfo.email}</p>
                 </div>
               </div>
 
@@ -58,7 +58,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="text-lg font-medium text-white mb-1">Location</h4>
-                  <p className="text-gray-400">E-401, Kalash 2, Narol, Ahmedabad</p>
+                  <p className="text-gray-400">{personalInfo.location}</p>
                 </div>
               </div>
             </div>
@@ -67,7 +67,7 @@ const Contact: React.FC = () => {
               <h4 className="text-lg font-medium text-white mb-4">Connect with me</h4>
               <div className="flex gap-4">
                 <motion.a
-                  href="http://www.linkedin.com/in/jaydeep-gadhavi-ab25b0219"
+                  href={personalInfo.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ y: -5 }}
@@ -76,7 +76,7 @@ const Contact: React.FC = () => {
                   <Linkedin size={18} />
                 </motion.a>
                 <motion.a
-                  href="https://github.com/jaydeep141199"
+                  href={personalInfo.github}
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ y: -5 }}

@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail } from 'lucide-react';
+import { personalInfo } from '../data/portfolioData';
+import logo from '../assets/jaydeep-logo.svg';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -14,10 +16,13 @@ const Footer: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="mb-6 md:mb-0"
+            className="mb-6 md:mb-0 flex items-center gap-4"
           >
-            <h3 className="text-2xl font-bold text-blue-400">Jaydeep Gadhavi</h3>
-            <p className="text-gray-400 mt-2">Front End Developer</p>
+            <img src={logo} alt={`${personalInfo.name} logo`} className="h-12 w-12 rounded-xl shadow-lg shadow-blue-500/20" />
+            <div>
+              <h3 className="text-2xl font-bold text-blue-400">{personalInfo.name}</h3>
+              <p className="text-gray-400 mt-2">{personalInfo.title}</p>
+            </div>
           </motion.div>
 
           <motion.div
@@ -28,7 +33,7 @@ const Footer: React.FC = () => {
             className="flex gap-6 mb-6 md:mb-0"
           >
             <motion.a
-              href="https://github.com/jaydeep141199"
+              href={personalInfo.github}
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ y: -5 }}
@@ -37,7 +42,7 @@ const Footer: React.FC = () => {
               <Github size={20} />
             </motion.a>
             <motion.a
-              href="http://www.linkedin.com/in/jaydeep-gadhavi-ab25b0219"
+              href={personalInfo.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ y: -5 }}
@@ -46,7 +51,7 @@ const Footer: React.FC = () => {
               <Linkedin size={20} />
             </motion.a>
             <motion.a
-              href="mailto:jaydip.gadhavi.1999@gmail.com"
+              href={`mailto:${personalInfo.email}`}
               whileHover={{ y: -5 }}
               className="text-gray-400 hover:text-white transition-colors"
             >
@@ -63,7 +68,7 @@ const Footer: React.FC = () => {
           className="border-t border-gray-800 mt-8 pt-8 text-center"
         >
           <p className="text-gray-500">
-            &copy; {currentYear} Jaydeep Gadhavi. All rights reserved.
+            &copy; {currentYear} {personalInfo.name}. All rights reserved.
           </p>
         </motion.div>
       </div>

@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import logo from '../assets/jaydeep-logo.svg';
+import { personalInfo } from '../data/portfolioData';
 
 interface HeaderProps {
   activeSection: string;
@@ -26,9 +28,15 @@ const Header: React.FC<HeaderProps> = ({ activeSection, mobileMenuOpen, toggleMo
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-2xl font-bold text-blue-400"
+            className="flex items-center gap-3"
           >
-            JG
+            <a href="#home" className="flex items-center gap-3">
+              <img src={logo} alt={`${personalInfo.name} logo`} className="h-11 w-11 rounded-xl shadow-lg shadow-blue-500/20" />
+              {/* <div className="hidden sm:block">
+                <p className="text-base font-semibold text-white leading-none">{personalInfo.name}</p>
+                <p className="text-xs text-blue-400 mt-1 leading-none">{personalInfo.title}</p>
+              </div> */}
+            </a>
           </motion.div>
 
           {/* Desktop Navigation */}
